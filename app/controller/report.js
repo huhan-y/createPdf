@@ -1,7 +1,6 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const moment = require('moment');
@@ -10,6 +9,7 @@ class ReportController extends Controller {
   async index() {
     const { ctx } = this;
     const { header,body } = ctx.request
+    // 要生成pdf的页面的url
     const url = `${header.origin}/pdf/${body.id}`
     
     // 启动pupeteer，加载页面
